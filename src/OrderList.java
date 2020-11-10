@@ -3,13 +3,11 @@ import java.util.List;
 
 public class OrderList {
 
-    List<Order> orderList;
+    private List<Order> orderList;
 
     public OrderList() {
         this.orderList = new ArrayList<Order>();
     }
-
-
 
     public List<Order> getOrderList() {
         return orderList;
