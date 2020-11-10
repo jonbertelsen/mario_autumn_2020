@@ -1,0 +1,10 @@
+START
+NR
+1
+NAVN
+Vesuvio
+INGREDIENSER
+Ost og tomat
+PRIS
+57
+SLUT
