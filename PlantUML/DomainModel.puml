@@ -1,0 +1,35 @@
+
+@startuml
+
+Title Domain model
+
+hide circle
+hide methods
+
+class MenuCard {
+}
+
+class OrderList {
+}
+
+class Pizza {
+    pizzaNo
+    name
+    ingredients
+    price
+}
+
+class Order {
+   pizzaNo
+   amount
+   pickupTime
+   orderTime
+   customerName
+   customerPhone
+}
+
+OrderList "1" -right- "*" Order: contains
+MenuCard "1" -right- "*" Pizza: contains >
+Pizza "1" -- "*" Order: belongs-to
+
+@enduml

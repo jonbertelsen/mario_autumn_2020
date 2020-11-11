@@ -1,20 +1,20 @@
 @startuml
-:Main Admin: as Admin
-(Use the application) as (Use)
+left to right direction
+Title Use Case Diagram
+actor Alfonzo
+actor Mario
+actor Revisor
+rectangle PaymentGateway <<actor>>
+rectangle "Marios Pizzabar" {
+    Alfonzo -- (UC1: Vis menukort)
+    Alfonzo -- (UC2: Opret ordre)
+    Alfonzo -- (UC3: Vis ordrer)
+    Alfonzo -- (UC4: Fjern ordre)
+    Mario -- (UC5: Vis statistik)
+    Mario -- (UC3: Vis ordrer)
+    Revisor -- (UC6: Vis omsætning)
+    (UC3: Vis ordrer) -- PaymentGateway
 
-User -> (Start)
-User --> (Use)
 
-Admin ---> (Use)
-
-note right of Admin : This is an example.
-
-note right of (Use)
-A note can also
-be on several lines
-end note
-
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
+}
 @enduml
