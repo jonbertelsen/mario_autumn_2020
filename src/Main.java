@@ -1,33 +1,30 @@
-import UI.Input;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Menucard menuCard = new Menucard();
-
-
         menuCard.readPizzasFromFile("menucard.txt");
 
-        // Vis: Program menu
-
-        menuCard.showMenuCard();
 
         Pizza vesuvio = new Pizza(1, "Calzone", "Ost og Tomat", 57);
         Pizza calzone = new Pizza(1, "Vesuvio", "Ost og Tomat", 75);
         menuCard.addPizza(calzone);
+        menuCard.addPizza(vesuvio);
 
-        int tid = Input.getTimeInMinutes("Afhentingstid: ");
+        menuCard.showMenuCard();
 
-        Order o1 = new Order(tid, "Jon", "22755844");
-        o1.addPizza(vesuvio,2);
-        o1.addPizza(calzone,4);
+        OrderList ordrer = new OrderList();
 
-        System.out.println(o1.toString());
+        ordrer.addOrder(new Order(1, 1, Input.convertTimeFromTextToInt("19.30"), "Jønke", "2323232"));
+        ordrer.addOrder(new Order(13, 2, Input.convertTimeFromTextToInt("19.15"), "Blondie", "23453232"));
+        ordrer.addOrder(new Order(8, 4, Input.convertTimeFromTextToInt("19.45"), "Makrellen", "234532"));
+        ordrer.addOrder(new Order(3, 1, Input.convertTimeFromTextToInt("18.30"), "Fehår", "234353232"));
 
-
-
-
+        System.out.println("Ordreliste før sortering:");
+        System.out.println(ordrer.toString());
+        System.out.println("Ordreliste efter sortering:");
+        ordrer.sortOrders();
+        System.out.println(ordrer.toString());
 
     }
 }

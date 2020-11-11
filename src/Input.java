@@ -1,5 +1,3 @@
-package UI;
-
 import java.util.Scanner;
 public class Input {
 
@@ -21,19 +19,24 @@ public class Input {
             System.out.print(question);
             Scanner scanner = new Scanner(System.in);
             String timeAsString = scanner.nextLine();
-            String[] strings = timeAsString.split("\\.");
-            try {
-                int hoursInMinutes = Integer.parseInt(strings[0]) * 60;
-                int minutes = Integer.parseInt(strings[1]);
-                return hoursInMinutes + minutes;
-            } catch(NumberFormatException e)  {
-                System.out.println("Fejl i tidsformat. Det skal være på formen hh.mm");
-            } catch (IndexOutOfBoundsException e ) {
-                System.out.println("Du mangler et punktum!");
-            } catch (Exception e){
-                System.out.println("Last resort");
-            }
+            return convertTimeFromTextToInt(timeAsString);
         }
+    }
+
+    public static int convertTimeFromTextToInt(String timeAsString) {
+        String[] strings = timeAsString.split("\\.");
+        try {
+            int hoursInMinutes = Integer.parseInt(strings[0]) * 60;
+            int minutes = Integer.parseInt(strings[1]);
+            return hoursInMinutes + minutes;
+        } catch(NumberFormatException e)  {
+            System.out.println("Fejl i tidsformat. Det skal være på formen hh.mm");
+        } catch (IndexOutOfBoundsException e ) {
+            System.out.println("Du mangler et punktum!");
+        } catch (Exception e){
+            System.out.println("Last resort");
+        }
+        return 0;
     }
 
     public static int getInt(String question) {

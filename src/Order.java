@@ -1,20 +1,20 @@
-import UI.Input;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+public class Order implements Comparable<Order> {
 
-    private List<OrderLine> pizzas;
+    private int pizzaNr;
+    private int amount;
     private int pickupTime;
     private Date orderTime;
     private String customerName;
     private String phone;
     private boolean removed;
 
-    public Order(int pickupTime, String customerName, String phone) {
-        this.pizzas = new ArrayList<OrderLine>();
+    public Order(int pizzaNr, int amount, int pickupTime, String customerName, String phone) {
+        this.pizzaNr = pizzaNr;
+        this.amount = amount;
         this.pickupTime = pickupTime;
         this.customerName = customerName;
         this.phone = phone;
@@ -22,8 +22,28 @@ public class Order {
         this.removed = false;
     }
 
-    public void addPizza(Pizza pizza, int amount){
-        pizzas.add(new OrderLine(pizza, amount));
+    public int getPizzaNr() {
+        return pizzaNr;
+    }
+
+    public void setPizzaNr(int pizzaNr) {
+        this.pizzaNr = pizzaNr;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public boolean isRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 
     public int getPickupTime() {
@@ -54,25 +74,26 @@ public class Order {
         return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
-
-        String allPizzas = "";
-        for (OrderLine pizza : pizzas) {
-            allPizzas = allPizzas + pizza.toString();
-
-        }
-
         return "Order{" +
-                ", pickupTime=" + Input.getMinutesToTimeFormat(pickupTime) +
-                ", orderTime=" + orderTime +
-                ", customerName='" + customerName + '\'' +
-                ", phone='" + phone + '\'' + "\n" +
-                ", orderliner='" + allPizzas +
+                "pizzaNr = " + pizzaNr +
+                ", amount = " + amount +
+                ", pickupTime as int = " + pickupTime +
+                ", pickupTime as text = kl. " + Input.getMinutesToTimeFormat(pickupTime) +
+                ", orderTime = " + orderTime +
+                ", customerName = '" + customerName + '\'' +
+                ", phone = '" + phone + '\'' +
+                ", removed = " + removed +
                 '}';
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    @Override
+    public int compareTo(Order o) {
+        return this.pickupTime - o.getPickupTime();
     }
 }

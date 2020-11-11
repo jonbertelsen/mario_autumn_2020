@@ -14,7 +14,7 @@ public class Menucard {
     }
 
     public void readPizzasFromFile(String fileName){
-
+        // TODO: Skal kodes
     }
 
     public void showMenuCard(){
@@ -25,5 +25,6 @@ public class Menucard {
             System.out.print(pizza.ingredienser + " ...... ");
             System.out.println(pizza.pris + " kr.");
         }
+        System.out.println();
     }
 }
