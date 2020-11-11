@@ -45,4 +45,14 @@ public class Pizza {
     public void setPris(int pris) {
         this.pris = pris;
     }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "nr=" + nr +
+                ", navn='" + navn + '\'' +
+                ", ingredienser='" + ingredienser + '\'' +
+                ", pris=" + pris +
+                '}';
+    }
 }

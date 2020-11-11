@@ -1,3 +1,5 @@
+package UI;
+
 import java.util.Scanner;
 public class Input {
 
@@ -13,6 +15,7 @@ public class Input {
         return hoursText + "." + minutesText;
     }
 
+    // Kan indlæse på formatet: 15.30
     public static int getTimeInMinutes(String question){
         while (true) {
             System.out.print(question);
@@ -23,8 +26,12 @@ public class Input {
                 int hoursInMinutes = Integer.parseInt(strings[0]) * 60;
                 int minutes = Integer.parseInt(strings[1]);
                 return hoursInMinutes + minutes;
-            } catch (NumberFormatException e) {
+            } catch(NumberFormatException e)  {
                 System.out.println("Fejl i tidsformat. Det skal være på formen hh.mm");
+            } catch (IndexOutOfBoundsException e ) {
+                System.out.println("Du mangler et punktum!");
+            } catch (Exception e){
+                System.out.println("Last resort");
             }
         }
     }
@@ -40,6 +47,7 @@ public class Input {
             }
         }
     }
+
 
     private static int[] textToInts(String s) {
         String[] strings = s.split(" ");

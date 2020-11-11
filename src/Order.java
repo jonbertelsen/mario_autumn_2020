@@ -1,18 +1,20 @@
+import UI.Input;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 
-    private int pizzaNo;
-    private int amount;
+    private List<OrderLine> pizzas;
     private int pickupTime;
     private Date orderTime;
     private String customerName;
     private String phone;
     private boolean removed;
 
-    public Order(int pizzaNo, int amount, int pickupTime, String customerName, String phone) {
-        this.pizzaNo = pizzaNo;
-        this.amount = amount;
+    public Order(int pickupTime, String customerName, String phone) {
+        this.pizzas = new ArrayList<OrderLine>();
         this.pickupTime = pickupTime;
         this.customerName = customerName;
         this.phone = phone;
@@ -20,20 +22,8 @@ public class Order {
         this.removed = false;
     }
 
-    public int getPizzaNo() {
-        return pizzaNo;
-    }
-
-    public void setPizzaNo(int pizzaNo) {
-        this.pizzaNo = pizzaNo;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void addPizza(Pizza pizza, int amount){
+        pizzas.add(new OrderLine(pizza, amount));
     }
 
     public int getPickupTime() {
@@ -66,13 +56,19 @@ public class Order {
 
     @Override
     public String toString() {
+
+        String allPizzas = "";
+        for (OrderLine pizza : pizzas) {
+            allPizzas = allPizzas + pizza.toString();
+
+        }
+
         return "Order{" +
-                "pizzaNo=" + pizzaNo +
-                ", amount=" + amount +
                 ", pickupTime=" + Input.getMinutesToTimeFormat(pickupTime) +
                 ", orderTime=" + orderTime +
                 ", customerName='" + customerName + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone='" + phone + '\'' + "\n" +
+                ", orderliner='" + allPizzas +
                 '}';
     }
 
