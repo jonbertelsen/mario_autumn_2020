@@ -1,5 +1,3 @@
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -48,7 +46,7 @@ public class OrderList {
 
     public void showOrderList(Menucard menucard){
         for (Order order : orderList) {
-            System.out.println(order.showOrderDetails(menucard));
+            System.out.println(order.getOrderDetails(menucard));
         }
     }
 
@@ -95,7 +93,6 @@ public class OrderList {
         Order order = null;
 
         SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
-        //formatter.setTimeZone(TimeZone.getTimeZone("CET"));
 
         File file = new File(fileName);
         try (Scanner scanner = new Scanner(file)){

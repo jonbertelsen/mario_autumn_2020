@@ -51,7 +51,6 @@ public class Input {
         }
     }
 
-
     private static int[] textToInts(String s) {
         String[] strings = s.split(" ");
         int[] ints = new int[strings.length];

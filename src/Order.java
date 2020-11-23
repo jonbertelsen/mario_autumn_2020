@@ -89,7 +89,7 @@ public class Order implements Comparable<Order> {
         this.phone = phone;
     }
 
-    public String showOrderDetails(Menucard menuCard) {
+    public String getOrderDetails(Menucard menuCard) {
         return  "orderNo: " + orderNo +
                 ", pizzaNo: " + pizzaNo +
                 ", amount: " + amount +
