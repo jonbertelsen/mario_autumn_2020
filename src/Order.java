@@ -102,21 +102,6 @@ public class Order implements Comparable<Order> {
     }
 
     @Override
-    public String toString() {
-        return "Order{" +
-                "orderNo = " + orderNo +
-                ", pizzaNo = " + pizzaNo +
-                ", amount = " + amount +
-                ", pickupTime as int = " + pickupTime +
-                ", pickupTime as text = kl. " + Input.getMinutesToTimeFormat(pickupTime) +
-                ", orderTime = " + orderTime +
-                ", customerName = '" + customerName + '\'' +
-                ", phone = '" + phone + '\'' +
-                ", removed = " + removed +
-                '}';
-    }
-
-    @Override
     public int compareTo(Order o) {
         return this.pickupTime - o.getPickupTime();
     }

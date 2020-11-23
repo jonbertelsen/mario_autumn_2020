@@ -1,13 +1,12 @@
 public class UI {
 
-    Menucard menuCard = new Menucard();
-    OrderList orderList = new OrderList();
+    IDataMapper dataMapper = new FileDataMapper();
+    Menucard menuCard = new Menucard(dataMapper);
+    OrderList orderList = new OrderList(dataMapper);
     int choice = 0;
 
     public void mainMenu(){
-
-        menuCard.readPizzasFromFile("menucard.txt");
-        orderList.readOrdersFromFile("orderlist.txt");
+        orderList.readOrders();
         boolean running = true;
         String input = "";
 
@@ -23,7 +22,7 @@ public class UI {
                     orderList.removeOrder(orderNo);
                     System.out.println(String.format("Ordre nummer %s er fjernet", orderNo)); break;
                 case 9:
-                    orderList.saveOrderListToFile("orderlist.txt");
+                    orderList.persistOrderList();
                     System.out.println("Så er data gemt. Tak for denne gang!");
                     running = false;
                 break;
@@ -43,11 +42,9 @@ public class UI {
         orderList.sortOrders();
     }
 
-
     private void showMenu(){
         System.out.println("**** Marios Pizzabar ******");
         System.out.println("[1] Vis menu [2] Opret ordre [3] Vis ordrer [4] Fjern ordre [9] Afslut");
     }
-
 
 }
