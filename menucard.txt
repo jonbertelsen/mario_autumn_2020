@@ -1,10 +1,41 @@
-START
-NR
+BEGIN
+NO
 1
-NAVN
+NAME
 Vesuvio
-INGREDIENSER
-Ost og tomat
-PRIS
+INGREDIENTS
+Ost og tomatsauce
+PRICE
 57
-SLUT
+END
+BEGIN
+NO
+2
+NAME
+Amerikaner
+INGREDIENTS
+Ost, tomatsauce, oksefars, oregano
+PRICE
+53
+END
+BEGIN
+NO
+3
+NAME
+Cacciatore
+INGREDIENTS
+Ost, tomcatsauce, pepperoni og oregano
+PRICE
+57
+END
+BEGIN
+NO
+4
+NAME
+Carbona
+INGREDIENTS
+Ost, tomatsauce, kødsauce, spaghetti, cocktailpølser og oregano
+PRICE
+63
+END
+

@@ -1,58 +1,58 @@
 public class Pizza {
-    int nr;
-    String navn;
-    String ingredienser;
-    int pris;
+    int pizzaNo;
+    String name;
+    String ingredients;
+    int price;
 
     public Pizza() {
     }
 
-    public Pizza(int nr, String navn, String ingredienser, int pris) {
-        this.nr = nr;
-        this.navn = navn;
-        this.ingredienser = ingredienser;
-        this.pris = pris;
+    public Pizza(int pizzaNo, String name, String ingredients, int price) {
+        this.pizzaNo = pizzaNo;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.price = price;
     }
 
-    public int getNr() {
-        return nr;
+    public int getPizzaNo() {
+        return pizzaNo;
     }
 
-    public void setNr(int nr) {
-        this.nr = nr;
+    public void setPizzaNo(int pizzaNo) {
+        this.pizzaNo = pizzaNo;
     }
 
-    public String getNavn() {
-        return navn;
+    public String getName() {
+        return name;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getIngredienser() {
-        return ingredienser;
+    public String getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredienser(String ingredienser) {
-        this.ingredienser = ingredienser;
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
-    public int getPris() {
-        return pris;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPris(int pris) {
-        this.pris = pris;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
         return "Pizza{" +
-                "nr=" + nr +
-                ", navn='" + navn + '\'' +
-                ", ingredienser='" + ingredienser + '\'' +
-                ", pris=" + pris +
+                "nr=" + pizzaNo +
+                ", navn='" + name + '\'' +
+                ", ingredienser='" + ingredients + '\'' +
+                ", pris=" + price +
                 '}';
     }
 }
